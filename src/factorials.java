@@ -3,14 +3,13 @@ public class factorials {
     public int ans;
     public int fib = 0;
     public int fib2 = 1;
-    public int temp;
     public int fTerm;
     public int counter;
     public int[] chomp;
 
     public static void main(String[] args) {
         factorials f = new factorials();
-        f.factorial(4);
+        /*f.factorial(4);
 
         f.fTerm=6;
         f.fibonacci(f.fTerm);
@@ -20,6 +19,11 @@ public class factorials {
         f.chomp[1]=3;
         f.chomp[2]=3;
         f.chompProg(f.chomp);
+
+         */
+
+        f.counter=0;
+        System.out.println(f.fibonacci2(6)); // should be 8
 
     }
 
@@ -35,16 +39,23 @@ public class factorials {
     }
 
     public void fibonacci(int term){
-        if(counter>=fTerm){
-            System.out.println();
+        if (counter>=fTerm){
         }
         else{
             counter++;
-            temp=fib;
-            fib=fib2;
-            fib2=fib+temp;
+            fib2=fib2+fib;
+            fib=fib2-fib;
             System.out.println(fib);
             fibonacci(fib2);
+        }
+    }
+
+    public int fibonacci2(int t){
+        if(t==1 || t==0){
+            return t;
+        }
+        else {
+            return fibonacci2(t-1) + fibonacci2(t-2); // i dont understand how this statement was got?
         }
     }
 
